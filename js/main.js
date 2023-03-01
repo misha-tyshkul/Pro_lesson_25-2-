@@ -10,9 +10,9 @@ const arraySort = () => {
   const num = myForm.number.value;
   const inputValue = num.split(",").map((number) => Number(number));
   const radio1 = document.querySelector("#up");
-  const radio2 = document.querySelector("#down");
-  if (radio1.checked === true) {
-    inputValue.sort((a, b) => {
+  const sortDirection = radio1.checked;
+  inputValue.sort((a, b) => {
+    if (sortDirection === true) {
       if (a < b) {
         return -1;
       }
@@ -20,10 +20,7 @@ const arraySort = () => {
         return 1;
       }
       return 0;
-    });
-  }
-  if (radio2.checked === true) {
-    inputValue.sort((a, b) => {
+    } else {
       if (a < b) {
         return 1;
       }
@@ -31,8 +28,8 @@ const arraySort = () => {
         return -1;
       }
       return 0;
-    });
-  }
+    }
+  });
 
   console.log(inputValue);
 };
